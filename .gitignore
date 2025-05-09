@@ -6,3 +6,4 @@ tests/__pycache__/*
 *.pyc
 *.pyc
 __pycache__/
+*.vscode/

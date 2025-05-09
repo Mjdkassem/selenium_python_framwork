@@ -1,8 +1,6 @@
-*.log
-screenshots
-tests/__pycache__/*
-*.pyc
-.venv
-*.pyc
+screenshots/
 *.pyc
 __pycache__/
+*.log
+*.vscode/
+*.venv

@@ -54,7 +54,6 @@ class SeleniumDriver():
             self.my_log.info("Clicked on the element with locator: " + locator + "Locator Type:" + locatorType)
         except:
             self.my_log.info("Can not click on the element with locator: " + locator + "Locator Type:" + locatorType)
-            print_stack()
     
     def send_values(self, data, locator, locatorType="id"):
         try:
@@ -64,7 +63,6 @@ class SeleniumDriver():
             self.my_log.info("Send data on the element with locator: " + locator + "Locator Type:" + locatorType)
         except:
             self.my_log.info("Can send data on the element with locator: " + locator + "Locator Type:" + locatorType)
-            print_stack()
 
 
     def isElementPresent(self, locator, locatorType="id"):
@@ -109,7 +107,6 @@ class SeleniumDriver():
             print("Element appeared on the web page")
         except:
             print("Element not appeared on the web page")
-            print_stack()
         self.driver.implicitly_wait(2)
         return element
     def screenShot(self, resultMessage):
@@ -130,4 +127,3 @@ class SeleniumDriver():
             self.log.info("Screenshot save to directory: " + destinationFile)
         except:
             self.log.error("### Exception Occurred when taking screenshot")
-            print_stack()

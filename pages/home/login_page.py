@@ -40,4 +40,4 @@ class LoginPage(BasePage):
         result = self.isElementPresent("incorrectdetails", "id")
         return result
     def verify_homepage_title(self):
-        return self.verifyPageTitle("Login")
+        return self.verifyPageTitle("My Courses")

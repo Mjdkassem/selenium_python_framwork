@@ -9,6 +9,7 @@ Example:
     wdf.getWebDriverInstance()
 """
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 class WebDriverFactory():
 
@@ -44,14 +45,28 @@ class WebDriverFactory():
         elif self.browser == "firefox":
             driver = webdriver.Firefox()
         elif self.browser == "chrome":
-            # Set chrome driver
-            driver = webdriver.Chrome()
-        else:
-            driver = webdriver.Chrome()
+             # Set properties for chromedriver (if needed, Selenium Manager might handle this)
+            # chromedriver_path = "/path/to/your/chromedriver"
+            # service = Service(chromedriver_path)
+
+            # Configure Chrome Options for CI/Headless execution
+            options = ChromeOptions()
+            options.add_argument("--headless") # Run in headless mode
+            options.add_argument("--no-sandbox") # Bypass OS security model (necessary in some CI)
+            options.add_argument("--disable-dev-shm-usage") # Overcome limited resource problems
+            options.add_argument("--disable-gpu") # Disable GPU hardware acceleration (often good for headless)
+            options.add_argument("--window-size=1920,1080") # Set a default window size
+
+            # If the 'user data directory' error persists, you might need to be more specific:
+            # options.add_argument("--user-data-dir=/tmp/chrome-user-data") # Use a temporary, unique directory
+            # options.add_argument("--remote-debugging-port=9222") # Often included, though not directly for this error
+
+            # Initialize the Chrome driver with options
+            # driver = webdriver.Chrome(service=service, options=options) # If using Service
+            driver = webdriver.Chrome(options=options) # If letting Selenium Manager find the driver
         # Setting Driver Implicit Time out for An Element
-        driver.implicitly_wait(3)
+            driver.implicitly_wait(3)
         # Maximize the window
-        driver.maximize_window()
-        # Loading browser with App URL
-        driver.get(baseURL)
+            driver.maximize_window()
+
         return driver

@@ -4,3 +4,7 @@ __pycache__/
 *.log
 *.vscode/
 *.venv
+*pages/__pycache__/
+*utilities/__pycache__/
+*tests/home/__pycache__/
+*pages/home/__pycache__/

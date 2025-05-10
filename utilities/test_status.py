@@ -58,7 +58,7 @@ class TestStatus(SeleniumDriver):
         if "FAIL" in self.resultList:
             self.log.error("### Exception Occurred !!!")
             self.resultList.clear()
-            assert True is True
+            assert True is False
         else:
             self.log.info(testName + "Successed")
             self.resultList.clear()

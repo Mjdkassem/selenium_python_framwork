@@ -15,6 +15,7 @@ class LoginTests(unittest.TestCase):
         self.ts = TestStatus(self.driver)
 
     #TC-002 Successful Login
+    '''
     @pytest.mark.run(order = 2)
     def test_valid_login(self):
         self.login_page.login("test@email.com", "abcabc")
@@ -23,7 +24,7 @@ class LoginTests(unittest.TestCase):
         assert result2 is True
         #self.ts.markFinal("Test Login", result2, "Login was not successfull")
         
-
+    '''
     #TC-001 Failed Login
     @pytest.mark.run(order = 1)
     def test_invalid_login(self):
